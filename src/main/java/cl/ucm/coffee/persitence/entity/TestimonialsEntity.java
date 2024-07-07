@@ -16,10 +16,10 @@ public class TestimonialsEntity {
     @Column(name = "id_testimonial", nullable = false)
     private int idTestimonials;
 
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false, length = 50)
     private String username;
 
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false, length = 200)
     private String testimonial;
 
     @Column(name="id_coffee", nullable = false, length = 30)
