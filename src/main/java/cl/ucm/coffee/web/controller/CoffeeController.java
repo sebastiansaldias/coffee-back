@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/coffee")
+@RequestMapping("/api/cafes")
 public class CoffeeController {
 
     @GetMapping("")
