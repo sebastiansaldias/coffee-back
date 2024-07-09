@@ -127,7 +127,7 @@ public class AuthController {
                 userRepository.save(userEntity);
                 return ResponseEntity.ok("Usuario habilitado correctamente");
             } else {
-                return ResponseEntity.badRequest().body("Acción no válida. Use 'disable' o 'enable'");
+                return ResponseEntity.badRequest().body("No ha seleccionado una accion correcta.");
             }
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado");

@@ -1,24 +1,24 @@
 package cl.ucm.coffee.web.controller;
 
-import cl.ucm.coffee.persitence.entity.CoffeeEntity;
 import cl.ucm.coffee.persitence.entity.TestimonialsEntity;
 import cl.ucm.coffee.service.Coffee.CoffeeService;
 import cl.ucm.coffee.service.Testimonials.TestimonialService;
-import cl.ucm.coffee.service.dto.CoffeeDTO;
 import cl.ucm.coffee.service.dto.TestimonialDTO;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+
+
+
 @Controller
 @RestController
-@RequestMapping("/api/testimonios")
+@RequestMapping("/api/testimonials")
 public class TestimonialsController {
 
     @Autowired
@@ -26,13 +26,13 @@ public class TestimonialsController {
     @Autowired
     CoffeeService coffeeService;
 
-    @GetMapping("/")
+    @GetMapping("/obtener")
     public @ResponseBody List<TestimonialDTO> getTestimonials() {
 
         return testimonialService.findAll();
     }
 
-    @PostMapping("/")
+    @PostMapping("/ingresar")
     public ResponseEntity<Map> saveTestimonial(@RequestBody TestimonialDTO testimonialDTO) {
         TestimonialsEntity testimonialsEntity = new TestimonialsEntity();
 
@@ -48,7 +48,7 @@ public class TestimonialsController {
             return ResponseEntity.ok(response);
 
         } catch (Exception e) {
-            
+
             Map<String, String> errorResponse = new HashMap<>();
             errorResponse.put("error", "Error al crear el testimonio: " + e.getMessage());
             return ResponseEntity.badRequest().body(errorResponse);
